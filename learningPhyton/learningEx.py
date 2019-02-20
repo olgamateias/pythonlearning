@@ -1,3 +1,4 @@
+from tarfile import pwd
 print('Hello, Olga')
 print('yes - another Hello, World!')
 print(2+1)
@@ -90,6 +91,46 @@ my_dict={'k1':123, 'key2':[1,2,3], 'key3':{'insideKey1':11.99, 'insideKey2':15.9
 print(my_dict['key2']) #return the value for key2, which is a list
 print(my_dict['key2'][1]) #return the value that has index 1 in the list, which is the value for key2
 print(my_dict['key3']['insideKey2']) #the value for key3 is a dictionary 
+my_TupleList = (1,2,'new') #tuples is an Immutable list, like an array in Java
+#my_TupleList[2] = 3 #TypeError: 'tuple' object does not support item assignment
+
+listNew = [3,3,3,5,5,2,2,1,1,]
+mySet = set(listNew) #Sets are an unordered collection of unique elements. We can construct them by using the set() function.
+print(mySet)
+mySet.add(6)
+print(mySet)
+False #with capital first letter
+True #with capital first letter
+print(1>2)
+print(1==1)
+b=None ##null in Java
+
+"""
+For Windows you need to use double \ so python doesn't treat the second \ as an escape character, a file path is in the form:
+
+myfile = open("C:\\Users\\YourUserName\\Home\\Folder\\myfile.txt")
+For MacOS and Linux you use slashes in the opposite direction:
+
+myfile = open("/Users/YouUserName/Folder/myfile.txt")
+"""
+my_file = open("/Users/olma/Downloads/Olga's folder/python_wrk/Complete-Python-3-Bootcamp-master/00-Python Object and Data Structure Basics/test.txt")
+print(my_file.read()) # returns the content from the file as a string
+my_file.seek(0) #resets the cursor to initial position, otherwise, the next command will return empty string/ list, because the cursor is at the end of text/file and there is nothing :) 
+print(my_file.readlines()) # returns the content from the file as a list with strings
+my_file.close() #the file needs to be close
+#OR
+#you can open it with 'with' statement (remember with in sql?)
+with open("/Users/olma/Downloads/Olga's folder/python_wrk/Complete-Python-3-Bootcamp-master/00-Python Object and Data Structure Basics/test.txt") as myNewFile:
+    content = myNewFile.read()
+    print("with and content \n"+content)
+"""
+mode='r' is read only
+mode='w' is write (will overwrite files or create new ones
+mode='a' is append only (will add on to files)
+mode='r+' is reading and writing
+mode='w+' is writing and reading (overwrites the existing files or creates a new one!)
+"""
+ 
 
 
 
