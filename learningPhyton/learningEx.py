@@ -46,8 +46,50 @@ print("Hello, {}".format(name))
 print(f"Hello, {name}") #same thing different
 age=5
 print(f"{name} is {age} years old")
+my_list = [1,2,3]
+new_list = ["string", 100, 23.53] #lists in python can hold different obj types
+my_list = ["one", "two", "three"]
+y_list = ["four", "five", "six"]
+new_list = my_list + y_list #concat lists
+print(new_list)
+print(new_list[4])
+print(new_list[2:4]) #slicing
+new_list[0] = new_list[0].upper()
+new_list.append("seven") #add item to the list
+new_list.append("eight") #add item to the list
+new_list.pop() #removes the last object from the list
+popped_el = new_list.pop(1) #removes the element that is at index 1 from the list and the removed el can be saved
+print(new_list)
+print(popped_el)
+string_list = ["a", "z", "o","b"]
+num_list = [8,5,1,0,9]
+string_list.sort()
+num_list.sort() #doesn't return anything -> this can't be assigned to another list
+nr_new_list = num_list
+print(string_list)
+print(num_list)
+print(nr_new_list)
+nr_new_list.reverse()
+print(nr_new_list)
+nested_list = [1,1,[1,2]]
+print(nested_list[2][1])
+list1=[1,2,3]
+list2=[4,5,6]
+list3=[7,8,9]
+matrix=[list1,list2,list3]
+print(matrix[1])
+print(matrix[1][2])
+first_col = [row[0] for row in matrix] #to grab the first element of every row in the matrix object
+print(first_col)
 
-
+my_dict = {'key1':'value1', 'key2':'value2', 'key3':'value3'}
+print(my_dict['key3'])
+my_dict={'apple': 1.99, 'oranges':0.89, 'avocado':1.29}
+print(my_dict['apple'])
+my_dict={'k1':123, 'key2':[1,2,3], 'key3':{'insideKey1':11.99, 'insideKey2':15.99}}
+print(my_dict['key2']) #return the value for key2, which is a list
+print(my_dict['key2'][1]) #return the value that has index 1 in the list, which is the value for key2
+print(my_dict['key3']['insideKey2']) #the value for key3 is a dictionary 
 
 
 
