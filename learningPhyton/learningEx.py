@@ -130,8 +130,19 @@ mode='a' is append only (will add on to files)
 mode='r+' is reading and writing
 mode='w+' is writing and reading (overwrites the existing files or creates a new one!)
 """
- 
+with open("/Users/olma/Downloads/Olga's folder/python_wrk/Complete-Python-3-Bootcamp-master/00-Python Object and Data Structure Basics/new_file.txt", mode='w') as f:
+    content = f.write("some text as example")
 
+with open("/Users/olma/Downloads/Olga's folder/python_wrk/Complete-Python-3-Bootcamp-master/00-Python Object and Data Structure Basics/new_file.txt", mode='r') as f:
+    content = f.read()
+    print("example: " +content)
+
+with open("/Users/olma/Downloads/Olga's folder/python_wrk/Complete-Python-3-Bootcamp-master/00-Python Object and Data Structure Basics/new_file.txt", mode='a') as f:
+    content = f.write("\nnew line")
+    
+with open("/Users/olma/Downloads/Olga's folder/python_wrk/Complete-Python-3-Bootcamp-master/00-Python Object and Data Structure Basics/new_file.txt", mode='r') as f:
+    content = f.read()
+    print("a mode means adding text in file. \nadded text: " +content)
 
 
 
