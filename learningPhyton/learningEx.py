@@ -1,4 +1,5 @@
-from tarfile import pwd
+from operator import index
+
 print('Hello, Olga')
 print('yes - another Hello, World!')
 print(2+1)
@@ -112,7 +113,7 @@ myfile = open("C:\\Users\\YourUserName\\Home\\Folder\\myfile.txt")
 For MacOS and Linux you use slashes in the opposite direction:
 
 myfile = open("/Users/YouUserName/Folder/myfile.txt")
-"""
+
 my_file = open("/Users/olma/Downloads/Olga's folder/python_wrk/Complete-Python-3-Bootcamp-master/00-Python Object and Data Structure Basics/test.txt")
 print(my_file.read()) # returns the content from the file as a string
 my_file.seek(0) #resets the cursor to initial position, otherwise, the next command will return empty string/ list, because the cursor is at the end of text/file and there is nothing :) 
@@ -124,11 +125,13 @@ with open("/Users/olma/Downloads/Olga's folder/python_wrk/Complete-Python-3-Boot
     content = myNewFile.read()
     print("with and content \n"+content)
 """
+"""
 mode='r' is read only
 mode='w' is write (will overwrite files or create new ones
 mode='a' is append only (will add on to files)
 mode='r+' is reading and writing
 mode='w+' is writing and reading (overwrites the existing files or creates a new one!)
+"""
 """
 with open("/Users/olma/Downloads/Olga's folder/python_wrk/Complete-Python-3-Bootcamp-master/00-Python Object and Data Structure Basics/new_file.txt", mode='w') as f:
     content = f.write("some text as example")
@@ -143,6 +146,115 @@ with open("/Users/olma/Downloads/Olga's folder/python_wrk/Complete-Python-3-Boot
 with open("/Users/olma/Downloads/Olga's folder/python_wrk/Complete-Python-3-Bootcamp-master/00-Python Object and Data Structure Basics/new_file.txt", mode='r') as f:
     content = f.read()
     print("a mode means adding text in file. \nadded text: " +content)
+"""
+#comparision
+print(1<2<3)
+print(1<2 and 2<3)
+print(1<2 and 2>3)
+print(100 ==1 or 2==2)
+print(not(1==1))
+print(not(400>5000))
+x=25
+if(x>23):
+    print("greater then 23")
+else: 
+    print("smaller or equal to 23")
 
+score = 3000
+if(score >= 1 and score <= 1000):
+    print("level 1")
+elif(score >=1001 and score <= 2000):
+    print("level 2")
+elif(score >= 2001 and score <= 3000):
+    print("level 3")
+else:
+    print("level 0")
 
+my_list = [3,5,7,9,0,1,2,4,6,8]
+for nr in my_list:
+    if (nr%2==0):
+        print("even nr " + str(nr))
+    elif(nr%2 !=0):
+        print("odd nr " + str(nr))
+list_sum=0
+for number in my_list:
+    list_sum = list_sum + number
+print("list sum is " + str(list_sum))
 
+myString= "hello world"
+for letter in myString:
+    print(letter)
+
+myList = [(1,2),(3,4),(5,6)]
+
+#first going through list
+for item in myList:
+    print(item)
+
+#second going through tuples from the list
+for (a,b) in myList:
+    print(a)
+    print(b)
+
+#for loop for dictionaries
+d={'key1':1,'key2':5,'key3':9}
+#go through keys
+for item in d: #or d.keys()
+    print(item)
+
+#gothrough values
+for item in d.values():
+    print(item)
+    
+#go through values or keys
+for k,v in d.items():
+    print(v)
+
+print(234%100)
+print(201//100)
+
+year = 200
+century=0
+if(year%100 > 0):
+    century = year//100 +1
+else:
+    century = year//100
+print("century " + str(century))    
+
+#palindrom
+def checkPalindrome(inputString):
+    isPalindrome= False
+    i=-1
+    count=0
+    for letter in inputString//2:
+        if(letter == inputString[i]):
+            count=+1
+            i-=1
+    
+
+    return isPalindrome   
+
+testString = 'zzzazzazz'
+for index, item in enumerate(testString):
+    print(index, item)
+i=-1
+isPalindrome= False
+for index in range(len(testString)//2):
+
+    print(index, testString[index])
+    if(testString[index] == testString[i]):
+        
+        isPalindrome = True
+        i-=1
+    else:
+        isPalindrome=False
+        i-=1
+        
+    print(isPalindrome)
+
+x=0
+while(x<5):
+    print(f'the current value of x is {x}')
+    x+=1
+else:
+    print("x is not less than 5")     
