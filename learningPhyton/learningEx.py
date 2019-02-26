@@ -234,9 +234,11 @@ def checkPalindrome(inputString):
 
     return isPalindrome   
 
-testString = 'zzzazzazz'
 for index, item in enumerate(testString):
     print(index, item)
+
+testString = 'zzzazzazz'
+
 i=-1
 isPalindrome= False
 for index in range(len(testString)//2):
@@ -252,9 +254,69 @@ for index in range(len(testString)//2):
         
     print(isPalindrome)
 
+#while loop
 x=0
 while(x<5):
     print(f'the current value of x is {x}')
     x+=1
 else:
     print("x is not less than 5")     
+
+# break
+# continue
+# pass - does nothing
+
+#range
+z=[1,2,3,4,5,6]
+print(len(z))
+for num in range(len(z)//2): #range here is used to iterate just through half of the list
+    print(f'half z array {z[num]}')
+print()
+for num in range(0,11,2):#start at 0 in the list, iterate until, but not including, 11, jump 2 steps (din 2 in 2)
+    print(num)
+
+index_count=0
+word = 'abcdef'
+for letter in word:
+    print('At index {} the letter is {}'.format(index_count, letter))
+    #OR
+    print(word[index_count]) #prints just the letter, without the index
+    index_count +=1
+
+#enumerate
+word = 'abcdef'
+for item in enumerate(word):
+    print(item) #prints Tuples = (index, value) 
+    #-> thereforewe can write the for like this
+for item, letter in enumerate(word):
+    print(item)
+    print(letter)
+    print()
+
+# zip
+myList1 = [1,2,3,4,5]
+myList2 = ['a','b','c']
+myList3 = [11,22,33]
+print(list(zip(myList1, myList2, myList3))) #so zip excludes the extra values, if they do not have a correspondent
+for item in zip(myList1,myList2):
+    print(item)
+for first, second, third in zip(myList1,myList2, myList3):#therefor we can unpack 
+    print(first)
+    print(second)
+    print(third)
+
+# in
+print('a' in 'mamass')
+print('myKey' in {'myKey1' : 'value1', 'yourkey':'value2'})
+d={'myKey1' : 'value1', 'yourkey':'value2'}
+print('value1' in d.values())
+
+#min and max
+newlist = [8,43,12,89,111]
+print(min(newlist))
+print(max(newlist))
+
+#read input from user
+name = input('Enter your name: ')
+age = input('Enter your age: ') #is a string
+print(f'{name} is {age} years old')
