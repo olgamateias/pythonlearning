@@ -317,6 +317,50 @@ print(min(newlist))
 print(max(newlist))
 
 #read input from user
-name = input('Enter your name: ')
-age = input('Enter your age: ') #is a string
-print(f'{name} is {age} years old')
+#name = input('Enter your name: ')
+#age = input('Enter your age: ') #is a string
+#print(f'{name} is {age} years old')
+
+# List comprehensions
+listComprehension = [letter for letter in 'hello']
+print(listComprehension) 
+#the above is exactly the below standard code, but in one line
+listCompr = []
+for letter in 'hello':
+    listCompr.append(letter)
+print(listCompr)
+
+#another ex with math operations
+numList = [num**2 for num in range(0,11)]
+print(numList)
+#which is equivalent to:
+numList = []
+for num in range(0,11):
+    numList.append(num**2)
+print(numList)
+
+#another ex with IF
+myList = [num for num in range(0,11) if num%2==0]
+print(myList)
+
+myList =[]
+for num in range(0,11):
+    if(num%2 == 0):
+        myList.append(num)
+print(myList)
+
+#another ex with IF ELSE
+myList = [x if x%2==0 else 'ODD' for x in range(0,11)]
+print(myList)
+
+#ex with 2 FOR loops
+myList=[x*z for x in [2,4,6] for z in [1,10,100]]
+print(myList)
+
+myList=[]
+for x in [2,4,6]:
+    for z in [1,10,100]:
+        myList.append(x*z)
+print(myList)
+
+
