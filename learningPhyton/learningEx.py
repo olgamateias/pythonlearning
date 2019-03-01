@@ -1,4 +1,5 @@
 from operator import index
+import math
 
 print('Hello, Olga')
 print('yes - another Hello, World!')
@@ -364,3 +365,32 @@ for x in [2,4,6]:
 print(myList)
 
 
+def newFunction(num1, num2):
+    return num1+num2
+
+def dog_check(myString):
+    return 'dog' in myString.lower()
+
+def pig_latin(word):
+    first_letter = word[0].lower()
+    #check if first_letter is a vowel
+    if first_letter in 'aeiou':
+        pig_word = word + 'ay'
+    else:
+        pig_word = word[1:] + first_letter + 'ay'
+    return pig_word
+rangeList = range(2,16)
+print(rangeList)
+
+def is_prime2(num):
+    '''
+    Better method of checking for primes. 
+    '''
+    if num % 2 == 0 and num > 2: 
+        return False
+    for i in range(3, int(math.sqrt(num)) + 1, 2):
+        if num % i == 0:
+            return False
+    return True
+
+print(int(math.sqrt(19))+1)
