@@ -386,11 +386,67 @@ def is_prime2(num):
     '''
     Better method of checking for primes. 
     '''
+    #because even numbers, except 2, are not prime
     if num % 2 == 0 and num > 2: 
         return False
+    #all prime numbers are odd, that's why we start from 3 and jump 2 numbers
     for i in range(3, int(math.sqrt(num)) + 1, 2):
         if num % i == 0:
             return False
     return True
 
 print(int(math.sqrt(19))+1)
+
+# *args is something like *=all in SQL
+def myfunc(*args):
+    return sum(args) * 0.05 #the sum of all arguments received * 5%
+print(myfunc(40,60,100))
+# this is when you expect many arguments passed into the function
+# So... instead of this
+def newFunc(a,b,c=0,d=0,e=0):
+    return sum(a,b,c,d,e) * 0.05
+print(myfunc(40,60,100, 100))
+# python accepts this *args (args can be something else, like 'param', the important thing is the star *)
+def paramfunc(*param):
+    return sum(param) * 0.05 #the sum of all arguments received * 5%
+print(paramfunc(20,50,120))
+
+# args are a Tuple, so you can iterate through them
+def tupFunc(*args):
+    for item in args:
+        print(item)
+tupFunc(12,23,45,56,98)
+
+# another alternative is **kwargs = key words args -> creates a dictionary
+def kwFunc(**kwargs):
+    if 'fruit' in kwargs:
+        print('I choose {}'.format(kwargs['fruit']))
+    elif 'nuts' in kwargs:
+        print('I want {} today'.format(kwargs['nuts']))
+    else:
+        print('I do not want any fruits. Maybe a {} to cook.'.format(kwargs['veggie']))
+kwFunc(fruit='apple', veggie = 'potato', nuts='almonds')
+kwFunc(dairy='milk', veggie = 'potato', nuts='almonds')
+kwFunc(dairy='milk', veggie = 'potato', tea='black')
+
+#this two can be combined
+def combinedFunc(*args, **kwargs):
+    print(args)
+    print(kwargs)
+    print('I need to buy {} {} '.format(args[2], kwargs['drink']))
+combinedFunc(1,2,3,4,5, fruit='apple', dairy = 'milk', drink='beer', sweets='choco', cake='napoleon')
+
+#challenge
+def strfunc(inputString):
+    newString=''
+    for i in range(1, len(inputString)+1):
+        if(i%2==0):
+            newString=newString+inputString[i-1].upper()
+        else:
+            newString=newString+inputString[i-1].lower()
+    return newString
+print(strfunc('Anthropomorphism'))
+
+
+
+
