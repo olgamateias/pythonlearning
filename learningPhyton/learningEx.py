@@ -479,12 +479,14 @@ def animalCrackers(string):
 animalCrackers('String Otring')
 
 def makes_twenty(n1,n2):
+    return (n1+n2==20) or (n1==20) or (n2==20)
+'''   
     if (n1+n2==20) or (n1==20) or (n2==20):
         print(True)
         return True
     else:
-        print(False)
-        return False
+        print(False)'''
+    
 makes_twenty(2, 8)
 
 ''' Write a function that capitalizes the first and fourth letters of a name '''
@@ -511,7 +513,7 @@ def master_yoda(text):
     print(newString)
     return newString
 #the short way
-'''    newList = list[::-1]
+''' newList = list[::-1]
     newString = ' '.join(newList) -> joins the elements from the list with space between them
     print(newString)
     return newString'''
@@ -524,17 +526,14 @@ has_33([1, 3, 3]) → True
 has_33([1, 3, 1, 3]) → False
 has_33([3, 1, 3]) → False'''
 def has_33(num):
-    for item in range(0, len(num)):
-        if num[item] == 3:
-            for nextItem in range(item+1, len(num)):
-                if(num[item] == num[nextItem]):
-                    print(True)
-                    return True
-                else:
-                    print(False)
-                    return False
+    for item in range(0, len(num)-1):
+        if num[item] == 3 and num[item+1]==3:
+            print(True)
+            return True
+    print(False)
+    return False
 
-has_33([3,1,3])
+has_33([1,3,3])
 
 '''Given a string, return a string where for every character in the original there are three characters
 paper_doll('Hello') --> 'HHHeeellllllooo'
@@ -572,25 +571,80 @@ summer_69([1, 3, 5]) --> 9
 summer_69([4, 5, 6, 7, 8, 9]) --> 9
 summer_69([2, 1, 6, 9, 11]) --> 14 '''
 def summer_69(arr):
-    indexSix = 0
-    indexNine = 0
+    indexSix = arr.index(6)
+    indexNine = arr.index(9)
     sum=0
-    for index, value in enumerate(arr):
-        if value == 6:
-            indexSix=index
-            firstList=arr[:indexSix]
-            print(firstList)
-
-        elif value == 9:
-            indexNine=index
-            if(indexNine < len(arr)-1):
-                secondList=arr[indexNine+1:]
-            else:
-                secondList=[]
-                print(secondList)
+    firstList=arr[:indexSix]
+    print(firstList)
+    if(indexNine < len(arr)-1):
+        secondList=arr[indexNine+1:]
+    else:
+        secondList=[]
+        print(secondList)
     for item in firstList+ secondList:
         sum=sum+item
     print(sum)
     return sum
 summer_69([4,5,6,7,8,9])
-        
+# [4,5,6,7,8,9,4,5,6,7,8,9] try with this ex
+'''Write a function that takes in a list of integers and returns True if it contains 007 in order
+ spy_game([1,2,4,0,0,7,5]) --> True
+ spy_game([1,0,2,4,0,5,7]) --> True
+ spy_game([1,7,2,0,4,5,0]) --> False '''
+def spy_game(nums):
+    newStr=''
+    for num in nums:
+        if num == 0 or num == 7:
+            newStr=newStr+str(num)
+    print(newStr)
+    if newStr == '007':
+        print(True)
+        return True
+    print(False)
+    return False
+spy_game([1,7,2,0,4,5,0])
+    
+''' Write a function that returns the number of prime numbers that exist up to and including a given number
+count_primes(100) --> 25
+By convention, 0 and 1 are not prime. '''
+def count_primes(num): 
+    count=1
+#    oddList=range(3, num, 2)
+ #   print(oddList)
+    for int in range(3, num, 2):
+        if int == 3 or int ==5 or int ==7:
+            count+=1
+        elif int%3!=0 and int%5!=0 and int%7!=0 :
+            count+=1   
+    print(count)
+count_primes(100)
+
+print(abs(100-104))
+
+
+# map function map(func, *iterables) --> map object: receives a function and a iterable object (list, dict, tuples, etc)
+def square(num):
+    return num**2
+my_nums = [1,2,3,4,5]
+print(list(map(square, my_nums)))
+
+def evenString(my_string):
+    if len(my_string)%2==0:
+        return 'even string'
+    else:
+        return len(my_string)
+some_strings=['Andy', 'Mickael', 'Trotski', 'Agatha']
+print(list(map(evenString,some_strings)))
+
+# filter function map(func, *iterables) --> map object
+def check_even(num):
+    return num%2==0
+my_nums=[13,2,8,7,5,11,12]
+print(list(filter(check_even,my_nums)))
+
+# LAMBDA expression -> lambda expressions allow us to create "anonymous" functions. This basically means we can quickly make ad-hoc functions without needing to properly define a function using def.
+print(list(map(lambda num: num**2, my_nums)))
+print(list(filter(lambda item: item%2==0, my_nums)))
+print(list(filter(lambda item: len(item)%2==0, some_strings)))
+print(list(map(lambda item: item[::-1], some_strings)))
+print(list(map(lambda item: item[0], some_strings)))
