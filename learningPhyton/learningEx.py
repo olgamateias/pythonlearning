@@ -648,3 +648,48 @@ print(list(filter(lambda item: item%2==0, my_nums)))
 print(list(filter(lambda item: len(item)%2==0, some_strings)))
 print(list(map(lambda item: item[::-1], some_strings)))
 print(list(map(lambda item: item[0], some_strings)))
+
+#local, enclosed or global
+''' LEGB Rule:
+
+L: Local — Names assigned in any way within a function (def or lambda), and not declared global in that function.
+
+E: Enclosing function locals — Names in the local scope of any and all enclosing functions (def or lambda), from inner to outer.
+
+G: Global (module) — Names assigned at the top-level of a module file, or declared global in a def within the file.
+
+B: Built-in (Python) — Names preassigned in the built-in names module : open, range, SyntaxError,...
+'''
+
+name='is a global string var'
+
+def greet():
+    #name = 'is an enclosed funct local var'
+    
+    def gello():
+        #name = 'is a local var'
+        print('var <name> ' + name)
+    gello()
+
+greet()
+
+#scope of variables
+x=50
+def func():
+    global x #in this way you are calling the global var (x=50) in this function and here you can reassign it
+    print(f'global variable X {x}')
+    x='new value'
+    print(f'global variable was changed/ reassigned to {x}')
+func()
+print(x) # you will notice here that the value of the global variable has changed
+# changing the global variables is not always a very good idea. Instead we can do this:
+
+def func2(x):
+    print(f'global variable X {x}')
+    x='i am local now'
+    print(f'global variable was changed/ reassigned to {x}')
+    return x
+x=func2(x)
+print(x)
+
+
