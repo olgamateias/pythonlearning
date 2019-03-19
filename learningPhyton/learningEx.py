@@ -692,4 +692,26 @@ def func2(x):
 x=func2(x)
 print(x)
 
+nr1=10
+#nr2=input("Please enter a number ") #TypeError: unsupported operand type(s) for +: 'int' and 'str'
 
+#nr2=int(input("Please enter a number ")) # but - this will not handle the cases when the user will enter letters
+'''
+def get_int():
+    while True:
+        try:
+            result = int(input("Please enter a number "))
+        except:
+            print("You did not entered a number. Please try again.")
+        else:
+            print(str(result) + " is a valid number")
+            break
+        finally:
+            print("End of method.")
+    return result
+nr2=get_int()  
+nr3=get_int()  
+def addValues(nr1, nr2):
+    print(nr1+nr2)
+addValues(nr3, nr2)
+'''

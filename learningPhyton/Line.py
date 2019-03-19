@@ -20,6 +20,8 @@ class Line():
     
     def distance(self):
         # distance = radical din (x2-x1) la patrat + (y2 -y1) la patrat
+        # x1, y1 = self.coor1
+        # x2, y2 = self.coor2
         distance = math.sqrt((self.coor2[0]-self.coor1[0])**2 + (self.coor2[1] - self.coor1[1])**2)
         print(distance)
         return distance
