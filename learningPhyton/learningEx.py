@@ -715,3 +715,8 @@ def addValues(nr1, nr2):
     print(nr1+nr2)
 addValues(nr3, nr2)
 '''
+
+def testfunct():
+    print("hi!")
+    return 4
+testfunct()
