@@ -717,6 +717,56 @@ addValues(nr3, nr2)
 '''
 
 def testfunct():
-    print("hi!")
+    #print("hi!")
     return 4
 testfunct()
+testVar = testfunct() #you can assign a function to a variable
+print(testVar)
+del testfunct
+#print(testfunct()) #NameError: name 'testfunct' is not defined
+print(testVar)
+
+def firstFunction(nr):
+    
+    def secondFunct():
+        print("this is the secondFunction() created in another function (firstFunction).")
+        return 8
+    def thirdFunction():
+        print("this is the thirdFunction() created in another function (firstFunction).")
+        return 1
+    if nr == 8:
+        return secondFunct()
+    elif nr == 1:
+        return thirdFunction()
+    else:
+        return nr
+print(firstFunction(8))
+
+def newTestFunction():
+    return "New function"
+def other(some_funct_name):
+    print("this function can execute the code from another function")
+    print(some_funct_name())
+other(newTestFunction)
+
+def new_decorator(original_funct):
+    def wrap_funct():
+        print("\t some extra code, before the original function")
+        
+        original_funct()
+        
+        print("\t some extra code, after the original function")
+    return wrap_funct
+
+def funct_needs_decorator():
+    print("i want to be decorated!")
+
+# one way of doing it
+decorated_func = new_decorator(funct_needs_decorator)
+decorated_func()
+print('-----------------------------------')
+#another way of doing it
+@new_decorator
+def another_funct_needs_decorator():
+    print('another way of decorating a function')
+another_funct_needs_decorator()
