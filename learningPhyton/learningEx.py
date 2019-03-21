@@ -770,3 +770,35 @@ print('-----------------------------------')
 def another_funct_needs_decorator():
     print('another way of decorating a function')
 another_funct_needs_decorator()
+
+print('-----------------------------------')
+# generate a range of numbers: 1 way
+def create_cubes(n):
+    result = []
+    for x in range(n):
+        result.append(x**3)
+    return result
+print(create_cubes(10))
+for x in create_cubes(10):
+    print(x)
+
+# generate a range of numbers: another way
+def created_cubes2(n):
+    for x in range(n):
+        yield x**3
+print(created_cubes2(10))
+print(list(created_cubes2(11)))
+
+for y in created_cubes2(11):
+    print(y)
+print('-----------------------------------')
+
+def gen_fibon(n):
+    a=1
+    b=1
+    for i in range(n):
+        yield a
+        a,b = b,a+b
+
+for z in gen_fibon(10):
+    print(z)
