@@ -1,5 +1,12 @@
 from operator import index
 import math
+from collections import Counter
+from collections import defaultdict
+from collections import OrderedDict
+from collections import namedtuple
+import datetime
+from _datetime import tzinfo
+import timeit
 
 print('Hello, Olga')
 print('yes - another Hello, World!')
@@ -793,6 +800,7 @@ for y in created_cubes2(11):
     print(y)
 print('-----------------------------------')
 
+#generate fibonacci array
 def gen_fibon(n):
     a=1
     b=1
@@ -802,3 +810,130 @@ def gen_fibon(n):
 
 for z in gen_fibon(10):
     print(z)
+
+print('-----------------------------------')
+g=gen_fibon(9)
+
+print(next(g))
+print(next(g))
+print(next(g))
+print('-----------------------------------')
+newString = "hello"
+s_iter=iter(newString)
+print(next(s_iter))
+print(next(s_iter))
+print(next(s_iter))
+print('-----------------------------------')
+l = [1,1,1,32,12,12,32,4,5,6,4,5,6,2,2,2]
+print(Counter(l))
+randomWord="asssbbvvaacdecde"
+print(Counter(randomWord))
+
+textW = "how many times have times and how many words have words"
+listWords = textW.split()
+print(Counter(listWords))
+counterVar = Counter(listWords)
+print(counterVar.most_common())
+print(sum(counterVar.values()))
+print(list(counterVar))
+print(set(counterVar))
+print(dict(counterVar))
+list_of_pairs = counterVar.items()
+print(list_of_pairs)
+print(counterVar.items())
+print(Counter(dict(list_of_pairs)))
+print(counterVar.most_common()[:-1-1:-1])
+counterVar += Counter()
+print(counterVar)
+print(counterVar.clear())
+print('-----------------------------------')
+d = defaultdict(object)
+d['one'] #now we have a dictionary with a key that does not have a value
+print(d)
+newD=defaultdict(lambda: 0) #lambda expression will assign for each key value 0, if we do not specify it otherwise
+newD['one']
+newD['two'] = 2
+newD['three']
+newD['for']=4
+print(newD)
+print('-----------------------------------')
+#normal dictionaries do not keep the order, even though here they are ordered here
+normDict = {}
+normDict['a']=1
+normDict['b']=2
+normDict['c']=3
+normDict['d']=4
+normDict['e']=5
+print(normDict)
+for k,v in normDict.items():
+    print(k,v)
+print('-------------------')
+orderedDict = OrderedDict()
+orderedDict['a']=1
+orderedDict['b']=2
+orderedDict['c']=3
+orderedDict['d']=4
+orderedDict['e']=5
+for k,v in orderedDict.items():
+    print(k,v)
+print('-------------------')
+d1={}
+d1['a']=1
+d1['b']=2
+d2={}
+d2['b']=2
+d2['a']=1
+print(d1==d2)  
+print('-------------------')
+d1=OrderedDict()
+d1['a']=1
+d1['b']=2
+d2=OrderedDict()
+d2['b']=2
+d2['a']=1
+print(d1==d2)  
+print('-----------------------------------')
+#namedtuple() - creates a tuples which looks like an object, a class
+Dog = namedtuple('Dog', 'age name breed hungry')
+lissa = Dog(6, 'Lissa', 'husky', True)
+print(lissa)
+print(lissa.age)
+Cat = namedtuple('Cat', 'age name breed hungry')
+kissa = Cat(3, 'Kissa', 'european', False)
+print(kissa)
+print(kissa.hungry)
+print('-----------------------------------')
+t = datetime.time(15,25,1)
+print(t)
+print(t.hour)
+print(t.minute)
+print(t.second)
+print(t.tzinfo)
+print('------------------')
+today = datetime.date.today()
+print(today)
+print(today.year)
+print(today.month)
+print(today.day)
+print(today.timetuple())
+print(datetime.date.today().weekday())
+tt=today.timetuple()
+print(tt.tm_yday)
+yesterday=today.replace(day=24)
+print(yesterday)
+lastYearToday=today.replace(year=2018)
+print(lastYearToday)
+print(today-lastYearToday)
+print('------timeIT-------------------------')
+def costly_func():
+   return map(lambda x: x^2, range(10))
+print(timeit.timeit(costly_func))
+
+#decorator
+def wrapper(func, *args, **kwargs):
+    def wrapped():
+        return func(*args, **kwargs)
+    return wrapped
+number = 10
+wrapped = wrapper(gen_fibon, number)
+print(timeit.timeit(wrapped))
