@@ -7,6 +7,7 @@ from collections import namedtuple
 import datetime
 from _datetime import tzinfo
 import timeit
+import re 
 
 print('Hello, Olga')
 print('yes - another Hello, World!')
@@ -937,3 +938,47 @@ def wrapper(func, *args, **kwargs):
 number = 10
 wrapped = wrapper(gen_fibon, number)
 print(timeit.timeit(wrapped))
+print('-----------------------------------')
+split_term = '@'
+phrase = 'blablalba@gmail.com' #an alternative to extract email username and domain
+print(re.split(split_term, phrase))
+print('-----------------')
+split_term = '/'
+phrase = 'AMERICAS GEO/USPS/USPS HQ' #an alternative to extract email username and domain
+print(re.split(split_term, phrase))
+print('-----------------------------------')
+backslash= r'\\' #"\\\\" #r'\\'
+patterns = [backslash,":",";"]
+textPatt='AMRICAS GEO/SOME-TEXT: REGION\AREA/CITY'
+for elem in patterns:
+    print('Searching for {} in: {}"'.format(elem, textPatt))
+    #check for match
+    if re.search(elem, textPatt, flags=0):
+        newString=textPatt.replace("\\", "+")
+        print(newString)
+        print(re.split(elem, textPatt))
+        print('match was found')
+    else:
+        print('no match was found')
+print('-----------------------------------')
+
+def multi_re_find(patterns,phrase):
+    '''
+    Takes in a list of regex patterns
+    Prints a list of all matches
+    '''
+    for pattern in patterns:
+        print('Searching the phrase using the re check: %r' %(pattern))
+        print(re.findall(pattern,phrase))
+        print('\n')
+
+test_phrase = 'sdsd..sssddd...sdddsddd...dsds...dsssss...sdddd'
+
+test_patterns = [ 'sd*',     # s followed by zero or more d's
+                'sd+',          # s followed by one or more d's
+                'sd?',          # s followed by zero or one d's
+                'sd{3}',        # s followed by three d's
+                'sd{2,3}',      # s followed by two to three d's
+                ]
+
+multi_re_find(test_patterns,test_phrase)
