@@ -8,6 +8,8 @@ import datetime
 from _datetime import tzinfo
 import timeit
 import re 
+import io
+from _io import StringIO
 
 print('Hello, Olga')
 print('yes - another Hello, World!')
@@ -1014,3 +1016,28 @@ test_patterns=[ r'\d+', # sequence of digits
                 ]
 
 multi_re_find(test_patterns,test_phrase)
+print('-----------------------------------')
+message = 'Imagine here is a long text, maybe a text from web, extracted, that you want to use in your app.'
+f = io.StringIO(message)
+print(f.read())
+f.write(' Another phrase added to the message.')
+f.seek(0) #Reset cursor just like you would a file
+print(f.read())
+f.close()
+print('-----------------------------------')
+#hexadecimal representation
+print(hex(1234))
+print(hex(512))
+print('--------------')
+#binary representation
+print(bin(512))
+print(bin(128))
+print('-----------------------------------')
+#other built-in Math functions
+print(pow(2,4)) # == 2**4
+print(abs(-52))
+print(abs(12))
+print(round(3.1))
+print(round(3.9))
+print(round(3.141592, 3))
+print('-----------------------------------')
