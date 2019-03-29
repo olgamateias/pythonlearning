@@ -9,7 +9,9 @@ from _datetime import tzinfo
 import timeit
 import re 
 import io
-from _io import StringIO
+from io import StringIO
+from ipywidgets import  interact, interactive, fixed
+import ipywidgets as widgets
 
 print('Hello, Olga')
 print('yes - another Hello, World!')
@@ -1041,3 +1043,160 @@ print(round(3.1))
 print(round(3.9))
 print(round(3.141592, 3))
 print('-----------------------------------')
+#other built-in String functions
+string = 'Dude, where\'s my car'
+print(string.count('d')) #counts only lower case 'd'
+print(string.count('e'))
+print('index of d is ' + str(string.find('d')))
+print('index of w is ' + str(string.find('w')))
+
+print(string.isalpha()) #returns false if is a text with spaces or other symbols
+print(string.isalnum()) #returns false if is a text with spaces or other symbols
+print(string.isascii()) #takes in consideration the spaces and the other symbols
+print('------------')
+string = 'Hello'
+print(string.endswith('o')) 
+print(string[-1]=='o')
+print(string.istitle())
+print('------------')
+string='hihhhiihhhhiihh'
+print(string.split('i'))
+print(string.partition('i')) #('h' = the head, 'i' = the separator, 'hhhiihhhhiihh' = the tail)
+print('-----------------------------------')
+# some extras for set()
+newSet = {1,2,3}
+sCopy = newSet.copy()
+newSet.add(4)
+print(newSet)
+print(sCopy)
+print(newSet.difference(sCopy))
+print(newSet)
+#print(newSet.difference_update(sCopy)) #updates the set1 with the result from this operations. The result is {4}, therefore set1 = {4}... this is depricated since python 2.6
+print('-----symmetric_difference----')
+set1={1,2,3}
+set2={1,4,5}
+print(set1.symmetric_difference(set2)) #returns a new set {2, 3, 4, 5}
+set1={1,2,3}
+set2={1,2,5}
+print(set1.intersection(set2))
+set1={1,2,3}
+set2={1,2,3,5}
+set3={9,0,8}
+print('-----is subset or master set----')
+print(set1.issubset(set2))
+print(set2.issuperset(set1))
+print('-----is disjoint----')
+print(set1.isdisjoint(set2))
+print(set1.isdisjoint(set3))
+print('-----union----')
+set4 = set1.union(set3)
+print(set4)
+print('-----update----')
+set5={1,1,1}
+set6 = {3,3,0}
+set7 = set5.update(set6)
+print(set5)
+print('-----------------------------------')
+#extras for lists
+list1=[1,2,3]
+list1.append([4,5]) #[1, 2, 3, [4, 5]]
+print(list1)
+list2=[6,7,8]
+list2.extend([4,5])
+print(list2)
+print('-----insert----')
+print(list2)
+list2.insert(2, 'inserted') #notice that this insert will not overwrite the value at index 2, but it will shift the values
+print(list2)
+print('-----------------------------------')
+#something new!!!
+def interactFunc(x):
+    return x+12
+print(interact(interactFunc, x=23))
+print('-----------------------------------')
+#homework
+st = 'Print only the words that start with s in this sentence'
+
+for element in st.split():
+    if element[0].lower() == 's':
+        print(element)
+####
+#Use range() to print all the even numbers from 0 to 10.
+for item in range(0,11,2):
+    print(item)
+
+###Use a List Comprehension to create a list of all numbers between 1 and 50 that are divisible by 3.
+listCompr = [item for item in range(0,51) if item%3==0]
+print(listCompr)
+
+#####
+st = 'Print every word in this sentence that has an even number of letters'
+list = st.split()
+for word in list:
+    if len(word)%2==0:
+        print(word)
+#### Write a program that prints the integers from 1 to 100. But for multiples of three print "Fizz" instead of the number, and for the multiples of five print "Buzz". For numbers which are multiples of both three and five print "FizzBuzz".
+for nr in range(0, 101):
+    if (nr%3==0) and (nr%5==0):
+        print('FizzBuzz')
+    elif nr%3==0:
+        print('Fizz')
+    elif nr%5==0:
+        print('Buzz')
+    else:
+        print(nr)
+
+####
+st = 'Create a list of the first letters of every word in this string'
+listCompr = [letter[0] for letter in st.split()]
+print(listCompr)
+
+####Volume of a sphere
+def vol(rad):
+    volumeSphere=(4/3)*3.14*(rad**3)
+    print(volumeSphere)
+    return volumeSphere
+vol(2)
+
+#Write a function that checks whether a number is in a given range (inclusive of high and low)
+
+def ran_check(num,low,high):
+    if num>=low and num<=high:
+        print('{} is in the range between {} and {}'.format(num,low, high)) 
+        return True
+    print('False')
+    return False
+ran_check(2, 5, 7)
+
+# Write a Python function that accepts a string and calculates the number of upper case letters and lower case letters.
+'''
+Sample String : 'Hello Mr. Rogers, how are you this fine Tuesday?'
+Expected Output : 
+No. of Upper case characters : 4
+No. of Lower case Characters : 33
+
+HINT: Two string methods that might prove useful: .isupper() and .islower()
+
+If you feel ambitious, explore the Collections module to solve this problem!
+'''
+def up_low(s):
+    countUp=0
+    countLow=0
+    print(s.split())
+    for word in s.split():
+        for letter in word:
+            if letter.isupper():
+                countUp+=1
+            elif letter.isalpha():
+                countLow+=1
+    print(countUp)
+    print(countLow)
+s='Hello Mr. Rogers, how are you this fine Tuesday?'
+up_low(s)
+
+# Write a Python function that takes a list and returns a new list with unique elements of the first list.
+sampleList = [1,1,1,1,2,2,3,3,3,3,4,5]
+uniqlist=sampleList[0]
+for item in sampleList:
+    
+print(uniqlist)
