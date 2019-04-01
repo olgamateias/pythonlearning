@@ -12,6 +12,8 @@ import io
 from io import StringIO
 from ipywidgets import  interact, interactive, fixed
 import ipywidgets as widgets
+import string
+
 
 
 print('Hello, Olga')
@@ -35,21 +37,21 @@ print(newStr[4])#return letter that is at index 4 -> o
 print(newStr[-1])#reverse index -1 is associated with the last letter/index if the word becomes Hellom => -1 will return "m" and not o
 print("teste \ntest")# \n is for new line
 print("teste \ttest")# \n is for TAB
-print(len(newStr))#length of a string
-testString = "abcdefghijk"
-print(testString[2:])#substring from char at index 2 untill end
-print(testString[:3])#substr from the begining until index 3, not including index 3
-print(testString[2:6])#substring from index 2 until, not including, index 6
-print(testString[::2])#substring from index 0 until the end, but jumping from 0 +2 elements => acegik
-print(testString[::3])#substring from index 0 until the end, but jumping from 0 +3 elements => adgj
-print(testString[2:7:2])#substring from index 2 until index 7, but jumping from 2 +2 elements => ceg
-print(testString[::-1])#reverse string
-anotherString = 'Z' + newStr[1:]#cancat 2 strings
-print(anotherString)
-s = "Hi this is a string"
+print(len(newStr))#length of a oldString
+testoldString = "abcdefghijk"
+print(testoldString[2:])#suboldString from char at index 2 untill end
+print(testoldString[:3])#substr from the begining until index 3, not including index 3
+print(testoldString[2:6])#suboldString from index 2 until, not including, index 6
+print(testoldString[::2])#suboldString from index 0 until the end, but jumping from 0 +2 elements => acegik
+print(testoldString[::3])#suboldString from index 0 until the end, but jumping from 0 +3 elements => adgj
+print(testoldString[2:7:2])#suboldString from index 2 until index 7, but jumping from 2 +2 elements => ceg
+print(testoldString[::-1])#reverse oldString
+anotheroldString = 'Z' + newStr[1:]#cancat 2 oldStrings
+print(anotheroldString)
+s = "Hi this is a oldString"
 print(s.split()) #the split() made by space 9default) and returns a list
-print(s.split("i")) #splits the string s by letter i
-print("this is new {}".format("inserted")) #string format
+print(s.split("i")) #splits the oldString s by letter i
+print("this is new {}".format("inserted")) #oldString format
 print("The {} {} {}".format("fox", "brown", "quick"))
 print("The {2} {1} {0}".format("fox", "brown", "quick"))
 print("The {2} {2} {2}".format("fox", "brown", "quick"))
@@ -63,7 +65,7 @@ print(f"Hello, {name}") #same thing different
 age=5
 print(f"{name} is {age} years old")
 my_list = [1,2,3]
-new_list = ["string", 100, 23.53] #lists in python can hold different obj types
+new_list = ["oldString", 100, 23.53] #lists in python can hold different obj types
 my_list = ["one", "two", "three"]
 y_list = ["four", "five", "six"]
 new_list = my_list + y_list #concat lists
@@ -77,12 +79,12 @@ new_list.pop() #removes the last object from the list
 popped_el = new_list.pop(1) #removes the element that is at index 1 from the list and the removed el can be saved
 print(new_list)
 print(popped_el)
-string_list = ["a", "z", "o","b"]
+oldString_list = ["a", "z", "o","b"]
 num_list = [8,5,1,0,9]
-string_list.sort()
+oldString_list.sort()
 num_list.sort() #doesn't return anything -> this can't be assigned to another list
 nr_new_list = num_list
-print(string_list)
+print(oldString_list)
 print(num_list)
 print(nr_new_list)
 nr_new_list.reverse()
@@ -129,9 +131,9 @@ For MacOS and Linux you use slashes in the opposite direction:
 myfile = open("/Users/YouUserName/Folder/myfile.txt")
 
 my_file = open("/Users/olma/Downloads/Olga's folder/python_wrk/Complete-Python-3-Bootcamp-master/00-Python Object and Data Structure Basics/test.txt")
-print(my_file.read()) # returns the content from the file as a string
-my_file.seek(0) #resets the cursor to initial position, otherwise, the next command will return empty string/ list, because the cursor is at the end of text/file and there is nothing :) 
-print(my_file.readlines()) # returns the content from the file as a list with strings
+print(my_file.read()) # returns the content from the file as a oldString
+my_file.seek(0) #resets the cursor to initial position, otherwise, the next command will return empty oldString/ list, because the cursor is at the end of text/file and there is nothing :) 
+print(my_file.readlines()) # returns the content from the file as a list with oldStrings
 my_file.close() #the file needs to be close
 #OR
 #you can open it with 'with' statement (remember with in sql?)
@@ -195,8 +197,8 @@ for number in my_list:
     list_sum = list_sum + number
 print("list sum is " + str(list_sum))
 
-myString= "hello world"
-for letter in myString:
+myoldString= "hello world"
+for letter in myoldString:
     print(letter)
 
 myList = [(1,2),(3,4),(5,6)]
@@ -240,29 +242,29 @@ else:
 print("century " + str(century))    
 
 #palindrom
-def checkPalindrome(inputString):
+def checkPalindrome(inputoldString):
     isPalindrome= False
     i=-1
     count=0
-    for letter in inputString//2:
-        if(letter == inputString[i]):
+    for letter in inputoldString//2:
+        if(letter == inputoldString[i]):
             count=+1
             i-=1
     
 
     return isPalindrome   
 
-for index, item in enumerate(testString):
+for index, item in enumerate(testoldString):
     print(index, item)
 
-testString = 'zzzazzazz'
+testoldString = 'zzzazzazz'
 
 i=-1
 isPalindrome= False
-for index in range(len(testString)//2):
+for index in range(len(testoldString)//2):
 
-    print(index, testString[index])
-    if(testString[index] == testString[i]):
+    print(index, testoldString[index])
+    if(testoldString[index] == testoldString[i]):
         
         isPalindrome = True
         i-=1
@@ -336,7 +338,7 @@ print(max(newlist))
 
 #read input from user
 #name = input('Enter your name: ')
-#age = input('Enter your age: ') #is a string
+#age = input('Enter your age: ') #is a oldString
 #print(f'{name} is {age} years old')
 
 # List comprehensions
@@ -385,8 +387,8 @@ print(myList)
 def newFunction(num1, num2):
     return num1+num2
 
-def dog_check(myString):
-    return 'dog' in myString.lower()
+def dog_check(myoldString):
+    return 'dog' in myoldString.lower()
 
 def pig_latin(word):
     first_letter = word[0].lower()
@@ -454,14 +456,14 @@ def combinedFunc(*args, **kwargs):
 combinedFunc(1,2,3,4,5, fruit='apple', dairy = 'milk', drink='beer', sweets='choco', cake='napoleon')
 
 #challenge
-def strfunc(inputString):
-    newString=''
-    for i in range(1, len(inputString)+1):
+def strfunc(inputoldString):
+    newoldString=''
+    for i in range(1, len(inputoldString)+1):
         if(i%2==0):
-            newString=newString+inputString[i-1].upper()
+            newoldString=newoldString+inputoldString[i-1].upper()
         else:
-            newString=newString+inputString[i-1].lower()
-    return newString
+            newoldString=newoldString+inputoldString[i-1].lower()
+    return newoldString
 print(strfunc('Anthropomorphism'))
 
 '''LESSER OF TWO EVENS: Write a function that returns the lesser of two given numbers if both numbers are even, but returns the greater if one or both numbers are odd
@@ -477,8 +479,8 @@ def lesserOfTwoEvens(a,b):
         return max(a,b)
 lesserOfTwoEvens(8, 2)
 
-def animalCrackers(string):
-    myList=string.split()
+def animalCrackers(oldString):
+    myList=oldString.split()
     for item in range(0, len(myList)):
         for nextItem in range(1, len(myList)):
             print(myList[item][0] )
@@ -489,7 +491,7 @@ def animalCrackers(string):
             else:
                 print(False)
                 return False
-animalCrackers('String Otring')
+animalCrackers('oldString Otring')
 
 def makes_twenty(n1,n2):
     return (n1+n2==20) or (n1==20) or (n2==20)
@@ -504,9 +506,9 @@ makes_twenty(2, 8)
 
 ''' Write a function that capitalizes the first and fourth letters of a name '''
 def old_macdonald(name):
-    newString = name[:3].capitalize() + name[3:].capitalize()
-    print(newString)
-    return newString
+    newoldString = name[:3].capitalize() + name[3:].capitalize()
+    print(newoldString)
+    return newoldString
 old_macdonald('macdonald')
 
 ''' Given a sentence, return a sentence with the words reversed
@@ -515,21 +517,21 @@ master_yoda('We are ready') --> 'ready are We' '''
 def master_yoda(text):
     list=text.split()
     print(list)
-    newString=''
+    newoldString=''
     #the long way, without ::-1
     
     for item in range(len(list)-1, -1, -1):
         if(item == len(list)-1):
-            newString=list[item]
+            newoldString=list[item]
         else:
-            newString=newString+' '+list[item]
-    print(newString)
-    return newString
+            newoldString=newoldString+' '+list[item]
+    print(newoldString)
+    return newoldString
 #the short way
 ''' newList = list[::-1]
-    newString = ' '.join(newList) -> joins the elements from the list with space between them
-    print(newString)
-    return newString'''
+    newoldString = ' '.join(newList) -> joins the elements from the list with space between them
+    print(newoldString)
+    return newoldString'''
 master_yoda('I am home')
 
 ''' FIND 33:
@@ -548,15 +550,15 @@ def has_33(num):
 
 has_33([1,3,3])
 
-'''Given a string, return a string where for every character in the original there are three characters
+'''Given a oldString, return a oldString where for every character in the original there are three characters
 paper_doll('Hello') --> 'HHHeeellllllooo'
 paper_doll('Mississippi') --> 'MMMiiissssssiiippppppiii' '''
 def paper_doll(text):
-    newString=''
+    newoldString=''
     for letter in text:
-        newString=newString+(letter*3)    
-    print(newString)
-    return newString
+        newoldString=newoldString+(letter*3)    
+    print(newoldString)
+    return newoldString
 paper_doll('Hello')
 
 ''' Given three integers between 1 and 11, if their sum is less than or equal to 21, return their sum. 
@@ -641,13 +643,13 @@ def square(num):
 my_nums = [1,2,3,4,5]
 print(list(map(square, my_nums)))
 
-def evenString(my_string):
-    if len(my_string)%2==0:
-        return 'even string'
+def evenoldString(my_oldString):
+    if len(my_oldString)%2==0:
+        return 'even oldString'
     else:
-        return len(my_string)
-some_strings=['Andy', 'Mickael', 'Trotski', 'Agatha']
-print(list(map(evenString,some_strings)))
+        return len(my_oldString)
+some_oldStrings=['Andy', 'Mickael', 'Trotski', 'Agatha']
+print(list(map(evenoldString,some_oldStrings)))
 
 # filter function map(func, *iterables) --> map object
 def check_even(num):
@@ -658,9 +660,9 @@ print(list(filter(check_even,my_nums)))
 # LAMBDA expression -> lambda expressions allow us to create "anonymous" functions. This basically means we can quickly make ad-hoc functions without needing to properly define a function using def.
 print(list(map(lambda num: num**2, my_nums)))
 print(list(filter(lambda item: item%2==0, my_nums)))
-print(list(filter(lambda item: len(item)%2==0, some_strings)))
-print(list(map(lambda item: item[::-1], some_strings)))
-print(list(map(lambda item: item[0], some_strings)))
+print(list(filter(lambda item: len(item)%2==0, some_oldStrings)))
+print(list(map(lambda item: item[::-1], some_oldStrings)))
+print(list(map(lambda item: item[0], some_oldStrings)))
 
 #local, enclosed or global
 ''' LEGB Rule:
@@ -674,7 +676,7 @@ G: Global (module) — Names assigned at the top-level of a module file, or decl
 B: Built-in (Python) — Names preassigned in the built-in names module : open, range, SyntaxError,...
 '''
 
-name='is a global string var'
+name='is a global oldString var'
 
 def greet():
     #name = 'is an enclosed funct local var'
@@ -824,8 +826,8 @@ print(next(g))
 print(next(g))
 print(next(g))
 print('-----------------------------------')
-newString = "hello"
-s_iter=iter(newString)
+newoldString = "hello"
+s_iter=iter(newoldString)
 print(next(s_iter))
 print(next(s_iter))
 print(next(s_iter))
@@ -959,8 +961,8 @@ for elem in patterns:
     print('Searching for {} in: {}"'.format(elem, textPatt))
     #check for match
     if re.search(elem, textPatt, flags=0):
-        newString=textPatt.replace("\\", "+")
-        print(newString)
+        newoldString=textPatt.replace("\\", "+")
+        print(newoldString)
         print(re.split(elem, textPatt))
         print('match was found')
     else:
@@ -995,7 +997,7 @@ test_patterns = ['[sd]',    # either s or d
 
 multi_re_find(test_patterns,test_phrase)
 print('-----------------------------------')
-test_phrase = 'This is a string! But it has punctuation. How can we remove it?'
+test_phrase = 'This is a oldString! But it has punctuation. How can we remove it?'
 print(re.findall('[^!.?]+', test_phrase))
 print('-----------------------------------')
 
@@ -1008,7 +1010,7 @@ test_patterns=['[a-z]+',      # sequences of lower case letters
                 
 multi_re_find(test_patterns,test_phrase)
 print('-----------------------------------')
-test_phrase = 'This is a string with some numbers 1233 and a symbol #hashtag'
+test_phrase = 'This is a oldString with some numbers 1233 and a symbol #hashtag'
 
 test_patterns=[ r'\d+', # sequence of digits
                 r'\D+', # sequence of non-digits
@@ -1044,25 +1046,25 @@ print(round(3.1))
 print(round(3.9))
 print(round(3.141592, 3))
 print('-----------------------------------')
-#other built-in String functions
-string = 'Dude, where\'s my car'
-print(string.count('d')) #counts only lower case 'd'
-print(string.count('e'))
-print('index of d is ' + str(string.find('d')))
-print('index of w is ' + str(string.find('w')))
+#other built-in oldString functions
+oldString = 'Dude, where\'s my car'
+print(oldString.count('d')) #counts only lower case 'd'
+print(oldString.count('e'))
+print('index of d is ' + str(oldString.find('d')))
+print('index of w is ' + str(oldString.find('w')))
 
-print(string.isalpha()) #returns false if is a text with spaces or other symbols
-print(string.isalnum()) #returns false if is a text with spaces or other symbols
-print(string.isascii()) #takes in consideration the spaces and the other symbols
+print(oldString.isalpha()) #returns false if is a text with spaces or other symbols
+print(oldString.isalnum()) #returns false if is a text with spaces or other symbols
+print(oldString.isascii()) #takes in consideration the spaces and the other symbols
 print('------------')
-string = 'Hello'
-print(string.endswith('o')) 
-print(string[-1]=='o')
-print(string.istitle())
+oldString = 'Hello'
+print(oldString.endswith('o')) 
+print(oldString[-1]=='o')
+print(oldString.istitle())
 print('------------')
-string='hihhhiihhhhiihh'
-print(string.split('i'))
-print(string.partition('i')) #('h' = the head, 'i' = the separator, 'hhhiihhhhiihh' = the tail)
+oldString='hihhhiihhhhiihh'
+print(oldString.split('i'))
+print(oldString.partition('i')) #('h' = the head, 'i' = the separator, 'hhhiihhhhiihh' = the tail)
 print('-----------------------------------')
 # some extras for set()
 newSet = {1,2,3}
@@ -1148,7 +1150,7 @@ for nr in range(0, 101):
         print(nr)
 
 ####
-st = 'Create a list of the first letters of every word in this string'
+st = 'Create a list of the first letters of every word in this oldString'
 listCompr = [letter[0] for letter in st.split()]
 print(listCompr)
 
@@ -1169,14 +1171,14 @@ def ran_check(num,low,high):
     return False
 ran_check(2, 5, 7)
 
-# Write a Python function that accepts a string and calculates the number of upper case letters and lower case letters.
+# Write a Python function that accepts a oldString and calculates the number of upper case letters and lower case letters.
 '''
-Sample String : 'Hello Mr. Rogers, how are you this fine Tuesday?'
+Sample oldString : 'Hello Mr. Rogers, how are you this fine Tuesday?'
 Expected Output : 
 No. of Upper case characters : 4
 No. of Lower case Characters : 33
 
-HINT: Two string methods that might prove useful: .isupper() and .islower()
+HINT: Two oldString methods that might prove useful: .isupper() and .islower()
 
 If you feel ambitious, explore the Collections module to solve this problem!
 '''
@@ -1214,7 +1216,7 @@ def multiply(numbers):
     return result
 multiply([1,2,3,-4])
 
-#Write a Python function that checks whether a passed in string is palindrome or not.
+#Write a Python function that checks whether a passed in oldString is palindrome or not.
 def palindrome(s):
     s=s.lower()
     index=-1
@@ -1243,3 +1245,22 @@ def palindromeF(s):
     print("is palindrome")
     return True
 palindromeF("Nurses Run")
+
+#Write a Python function to check whether a oldString is pangram or not.
+#Note : Pangrams are words or sentences containing every letter of the alphabet at least once.
+#For example : "The quick brown fox jumps over the lazy dog"
+def ispangram(str1):
+    alphabet=string.ascii_lowercase 
+    str1=str1.lower()
+    for letter in alphabet:
+        if letter not in str1:
+            print('is not Pangram')
+            return False
+    print('is Pangram')
+    return True
+ispangram("The quick brown fox jumps over the lazy dog")
+ispangram("GeeksForGeeks")
+result = string.ascii_lowercase 
+    
+# Printing the value  
+print(result)  
