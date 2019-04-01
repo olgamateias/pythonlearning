@@ -13,6 +13,7 @@ from io import StringIO
 from ipywidgets import  interact, interactive, fixed
 import ipywidgets as widgets
 
+
 print('Hello, Olga')
 print('yes - another Hello, World!')
 print(2+1)
@@ -1196,7 +1197,49 @@ up_low(s)
 
 # Write a Python function that takes a list and returns a new list with unique elements of the first list.
 sampleList = [1,1,1,1,2,2,3,3,3,3,4,5]
-uniqlist=sampleList[0]
-for item in sampleList:
-    
+uniqlist=[sampleList[0]]
 print(uniqlist)
+for item in sampleList:
+    if item not in uniqlist:
+        uniqlist.append(item)
+print(uniqlist)
+
+#Write a Python function to multiply all the numbers in a list.
+
+def multiply(numbers):
+    result=1
+    for item in numbers:
+        result = result*item
+    print(result)
+    return result
+multiply([1,2,3,-4])
+
+#Write a Python function that checks whether a passed in string is palindrome or not.
+def palindrome(s):
+    s=s.lower()
+    index=-1
+    for letter in range(0,int(len(s)/2)):
+        if s[letter] != s[index]:
+            print("not palindrome")
+            return False
+        else:
+            index -=1
+    print("is palindrome")
+    return True
+palindrome("helleh")
+#"nurses run" - for this case: I think to create a list
+def palindromeF(s):
+    sList=s.lower().split() #this creates a list with the words, not letters, this ex. => [nurses, run]
+    concatWord="".join(sList)
+    #concatenate
+    print(concatWord)
+    index=-1
+    for letter in range(0,int(len(concatWord)/2)):
+        if concatWord[letter] != concatWord[index]:
+            print("not palindrome")
+            return False
+        else:
+            index -=1
+    print("is palindrome")
+    return True
+palindromeF("Nurses Run")
