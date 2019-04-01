@@ -9,6 +9,7 @@ from Circle import Circle
 from Line import Line
 from Cilindre import Cilindre
 from HandleExceptions import HandleExceptions
+from Account import Account
 
 if __name__ == '__main__':
     result = learningEx.newFunction(3, 6)
@@ -42,10 +43,14 @@ if __name__ == '__main__':
     c = Cilindre(2,3)
     c.volume()
     c.surface_area()
-    nr1 = HandleExceptions().get_int()
-    nr2 = HandleExceptions().get_int()
+    #nr1 = HandleExceptions().get_int()
+    #nr2 = HandleExceptions().get_int()
     
     #nr2=HandleExceptions.get_int()
     #nr2=int(input("Please add a number "))
-    result = HandleExceptions().sumNr(nr1, nr2) # here, for nr2, the fact that we are requesting a number via input - results a string. # therefore the error "TypeError: sumNr() missing 1 required positional argument: 'nr2'"# we need to cast it 
+    #result = HandleExceptions().sumNr(nr1, nr2) # here, for nr2, the fact that we are requesting a number via input - results a string. # therefore the error "TypeError: sumNr() missing 1 required positional argument: 'nr2'"# we need to cast it 
     
+    account1 = Account("Olga", 150)
+    account1.deposit(52)
+    account1.withdrawl(32)
+    account1.withdrawl(232)

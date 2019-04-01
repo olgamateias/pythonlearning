@@ -1164,12 +1164,12 @@ vol(2)
 #Write a function that checks whether a number is in a given range (inclusive of high and low)
 
 def ran_check(num,low,high):
-    if num>=low and num<=high:
+    if num in range(low, high):#if num>=low and num<=high:
         print('{} is in the range between {} and {}'.format(num,low, high)) 
         return True
-    print('False')
+    print('{} is not in range {} - {}'.format(num,low, high)) 
     return False
-ran_check(2, 5, 7)
+ran_check(5, 2, 7)
 
 # Write a Python function that accepts a oldString and calculates the number of upper case letters and lower case letters.
 '''
@@ -1185,18 +1185,27 @@ If you feel ambitious, explore the Collections module to solve this problem!
 def up_low(s):
     countUp=0
     countLow=0
-    print(s.split())
-    for word in s.split():
-        for letter in word:
-            if letter.isupper():
-                countUp+=1
-            elif letter.isalpha():
-                countLow+=1
+    #print(s.split())
+    for word in s:
+        if word.isupper():
+            countUp+=1
+        elif word.islower():
+            countLow+=1
     print(countUp)
     print(countLow)
 s='Hello Mr. Rogers, how are you this fine Tuesday?'
 up_low(s)
 
+def up_lowD(s):
+    d={"upper":0, "lower":0}
+    for word in s:
+        if word.isupper():
+            d["upper"]+=1
+        elif word.islower():
+            d["lower"]+=1
+    print(d["upper"])
+    print(d["lower"])
+up_lowD(s)
 # Write a Python function that takes a list and returns a new list with unique elements of the first list.
 sampleList = [1,1,1,1,2,2,3,3,3,3,4,5]
 uniqlist=[sampleList[0]]
@@ -1238,14 +1247,22 @@ def palindromeF(s):
     index=-1
     for letter in range(0,int(len(concatWord)/2)):
         if concatWord[letter] != concatWord[index]:
-            print("not palindrome")
+            print("{} is not palindrome".format(s))
             return False
         else:
             index -=1
-    print("is palindrome")
+    print("{} is palindrome".format(s))
     return True
 palindromeF("Nurses Run")
 
+def palindromeQ(s):
+    s=s.lower()
+    if s == s[::-1]:
+        print("{} is palindrome".format(s))
+        return True
+    print("{} is not palindrome".format(s))
+    return False
+palindromeQ("madam")
 #Write a Python function to check whether a oldString is pangram or not.
 #Note : Pangrams are words or sentences containing every letter of the alphabet at least once.
 #For example : "The quick brown fox jumps over the lazy dog"
@@ -1254,13 +1271,18 @@ def ispangram(str1):
     str1=str1.lower()
     for letter in alphabet:
         if letter not in str1:
-            print('is not Pangram')
+            print('{} is not Pangram'.format(str1))
             return False
-    print('is Pangram')
+    print('{} is Pangram'.format(str1))
     return True
 ispangram("The quick brown fox jumps over the lazy dog")
 ispangram("GeeksForGeeks")
-result = string.ascii_lowercase 
-    
+result = string.ascii_lowercase   
+alphaset = set(result)
 # Printing the value  
-print(result)  
+print(alphaset)
+print(result)
+print(set("The quick brown fox jumps over the lazy dog".lower()))
+#check
+testStr="Hello"
+print(testStr.isupper())
