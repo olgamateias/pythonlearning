@@ -1372,8 +1372,8 @@ print(first_col)
 print(len(matrix))
 def matrixElementsSum(matrix):
     sum=0
-    for index in range(0, len(matrix)):
-        first_col = [row[0] for row in matrix]
+    for index in range(0, len(matrix[0])):
+        first_col = [row[index] for row in matrix]
         for item in first_col:
             if item ==0:
                 break
