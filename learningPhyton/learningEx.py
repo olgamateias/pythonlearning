@@ -13,6 +13,8 @@ from io import StringIO
 from ipywidgets import  interact, interactive, fixed
 import ipywidgets as widgets
 import string
+import sys
+from sqlalchemy.sql.expression import false
 
 
 
@@ -865,7 +867,7 @@ newD['three']
 newD['for']=4
 print(newD)
 print('-----------------------------------')
-#normal dictionaries do not keep the order, even though here they are ordered here
+#normal dictionaries do not keep the order, even though here they are ordered
 normDict = {}
 normDict['a']=1
 normDict['b']=2
@@ -1286,3 +1288,76 @@ print(set("The quick brown fox jumps over the lazy dog".lower()))
 #check
 testStr="Hello"
 print(testStr.isupper())
+
+inputArray = [3, 6, -2, -5, 7, 3]
+def adjacentElementsProduct(inputArray):
+    max = -sys.maxsize
+    print(max)
+    for element in range(0, len(inputArray)-1):
+        if max < (inputArray[element]*inputArray[element+1]):
+            max = inputArray[element]*inputArray[element+1]
+            print(max)
+    print(max)        
+    return max
+adjacentElementsProduct(inputArray)
+
+print(sys.float_info.max_exp)
+print(sys.float_info.min_exp)
+print(sys.float_info.max)
+print(sys.float_info.min)
+
+variableTest = 23.345
+print(type(variableTest))
+
+statues = [8, 1, 0, 4, 7]
+def makeArrayConsecutive2(statues):
+    missingStatues=0
+    #sort the list
+    for item in range(0, len(statues)-1):
+        for x in range(item+1, len(statues)):
+            if statues[item] > statues[x] :
+                tempV=statues[item]
+                statues[item] = statues[x]
+                statues[x] =tempV
+    print(statues)
+    for el in range(0, len(statues)-1):
+        if (statues[el+1] - statues[el]) > 1:
+            missingStatues = missingStatues + abs(statues[el] - statues[el+1]+1)
+    print(missingStatues)
+    return missingStatues
+makeArrayConsecutive2(statues)
+
+sequenceValues=[10,1,2,3]#[1,2,4,2]#[3, 6, 5, 8, 10, 20, 15]
+def almostIncreasingSequence(sequenceValues):
+    newList=[]
+
+    for item in range(0, len(sequenceValues)-1):
+        if sequenceValues[item] >= sequenceValues[item+1]:
+
+            newList = sequenceValues.copy()
+            newList.pop(item+1)
+            
+            if conseqList(newList):
+                print("the list is conseq")
+                return True
+            else:
+                print('not consequent')
+                newList = sequenceValues.copy()
+                newList.pop(item)
+                if conseqList(newList):
+                    print("the list is conseq")
+                    return True
+                return False
+
+            
+            
+def conseqList(list):
+    print(list)
+    for x in range(0, len(list)-1):
+        if list[x] >= list[x+1]:
+            print('False')
+            return False
+    print('True')
+    return True
+conseqList(sequenceValues)
+almostIncreasingSequence(sequenceValues)
