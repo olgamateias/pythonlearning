@@ -1361,3 +1361,14 @@ def conseqList(list):
     return True
 conseqList(sequenceValues)
 almostIncreasingSequence(sequenceValues)
+print('-----------------------')
+matrix = [[0, 1, 1, 2], 
+          [0, 5, 0, 0], 
+          [2, 0, 3, 3]]
+print(matrix[1])
+print(matrix[1][2])
+first_col = [row[0] for row in matrix] #to grab the first element of every row in the matrix object
+print(first_col)
+print(len(matrix))
+def matrixElementsSum(matrix):
+    print('no idea')
